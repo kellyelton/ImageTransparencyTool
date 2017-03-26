@@ -6,7 +6,7 @@
     <Property Id="ARPPRODUCTICON" Value="icon.ico" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-    <MediaTemplate />
+    <MediaTemplate EmbedCab="yes"/>
 
     <Feature Id="MainApplication" Title="Image Transparency Tool" Level="1">
       <ComponentRef Id="cmpImageTransparencyTool.exe"/>
