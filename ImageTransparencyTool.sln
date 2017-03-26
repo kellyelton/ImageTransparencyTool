@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChronoKey", "ChronoKey\ChronoKey.csproj", "{E17D2C9D-86CA-4605-8338-A8B75D3E0ED2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageTransparencyTool", "ImageTransparencyTool\ImageTransparencyTool.csproj", "{E17D2C9D-86CA-4605-8338-A8B75D3E0ED2}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ImageTransparencyTool.Installer", "ImageTransparencyTool.Installer\ImageTransparencyTool.Installer.vdproj", "{BB686181-F162-4F44-8BE6-8160EEA58488}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{E17D2C9D-86CA-4605-8338-A8B75D3E0ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E17D2C9D-86CA-4605-8338-A8B75D3E0ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E17D2C9D-86CA-4605-8338-A8B75D3E0ED2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB686181-F162-4F44-8BE6-8160EEA58488}.Debug|Any CPU.ActiveCfg = Debug
+		{BB686181-F162-4F44-8BE6-8160EEA58488}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

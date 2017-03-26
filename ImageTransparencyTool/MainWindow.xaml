@@ -1,0 +1,157 @@
+﻿<Window
+    x:Class="ImageTransparencyTool.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ImageTransparencyTool"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    mc:Ignorable="d"
+    Title="Image Transparency Tool"
+    Background="White"
+    AllowDrop="True"
+    Drop="Window_Drop"
+    Width="1024"
+    Height="768">
+    <Grid
+        Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="128" />
+            <RowDefinition
+                Height="5" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="155" />
+            <ColumnDefinition
+                Width="5" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border
+            BorderThickness="1"
+            BorderBrush="#33274F71"
+            Grid.Row="0"
+            Grid.Column="0"
+            AllowDrop="True"
+            Drop="Window_Drop">
+            <Border.Background>
+                <SolidColorBrush
+                    Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=Color}" />
+            </Border.Background>
+            <Grid>
+                <Image
+                    Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=CurrentImage}"
+                    Stretch="Uniform"
+                    HorizontalAlignment="Stretch" />
+                <Label
+                    Background="GhostWhite"
+                    AllowDrop="True"
+                    Drop="Window_Drop"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center">↓ Drop Image Here ↓</Label>
+            </Grid>
+        </Border>
+
+        <Border
+            BorderThickness="1"
+            BorderBrush="#274F71"
+            Grid.Row="0"
+            Grid.RowSpan="3"
+            Grid.Column="2"
+            AllowDrop="True"
+            Drop="Window_Drop">
+            <Border.Background>
+                <ImageBrush
+                    ImageSource="Resources/Images/grid.png"
+                    TileMode="Tile"
+                    Stretch="None"
+                    ViewportUnits="Absolute"
+                    Viewport="0 0 64 64"
+                    />
+            </Border.Background>
+            <ScrollViewer
+                VerticalScrollBarVisibility="Auto"
+                HorizontalScrollBarVisibility="Auto"
+                AllowDrop="True"
+                Drop="Window_Drop"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Grid.RowSpan="2">
+                <Image
+                    x:Name="Image"
+                    Stretch="None"
+                    AllowDrop="True"
+                    Drop="Window_Drop"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=FilteredImage}" />
+            </ScrollViewer>
+        </Border>
+        <Border
+            BorderThickness="1"
+            Background="GhostWhite"
+            BorderBrush="#33274F71"
+            Grid.Row="2"
+            Grid.Column="0"
+            AllowDrop="True"
+            Drop="Window_Drop"
+            VerticalAlignment="Top"
+            Padding="5">
+            <StackPanel>
+                <Label
+                    HorizontalContentAlignment="Center"
+                    Content="Options"
+                    FontWeight="Bold" />
+                <Label
+                    FontSize="12">
+                    <TextBlock
+                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=Color, StringFormat=Color: {0}}" />
+                </Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="5" />
+                        <ColumnDefinition
+                            Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Width="20"
+                        Grid.Column="0"
+                        IsEnabled="False">
+                        <Image
+                            Source="Resources/Images/eyedropper-icon.png" Stretch="Uniform" Margin="2" />
+                    </Button>
+                    <xctk:ColorPicker
+                        Grid.Column="2"
+                        SelectedColor="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.ColumnSpan="3" />
+                </Grid>
+                <Label
+                    FontSize="12">
+                    <TextBlock
+                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=Percent, StringFormat=Percent: {0:#.00}}" />
+                </Label>
+                <Slider
+                    Minimum="0"
+                    Maximum="100"
+                    SmallChange="1"
+                    LargeChange="5"
+                    Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=Percent, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+
+            </StackPanel>
+        </Border>
+        <Button
+            Content="Save"
+            Grid.Column="0"
+            Grid.Row="2"
+            VerticalAlignment="Bottom"
+            Width="100"
+            Height="45"
+            Click="Button_Click" />
+    </Grid>
+</Window>

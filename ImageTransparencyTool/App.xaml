@@ -1,7 +1,7 @@
-﻿<Application x:Class="ChronoKey.App"
+﻿<Application x:Class="ImageTransparencyTool.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ChronoKey"
+             xmlns:local="clr-namespace:ImageTransparencyTool"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
