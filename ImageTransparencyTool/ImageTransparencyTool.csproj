@@ -52,6 +52,12 @@
     <ApplicationIcon>Resources\Images\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Exceptionless, Version=4.0.1934.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Exceptionless.4.0.1934\lib\net45\Exceptionless.dll</HintPath>
+    </Reference>
+    <Reference Include="Exceptionless.Wpf, Version=4.0.1934.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Exceptionless.Wpf.4.0.1934\lib\net45\Exceptionless.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
