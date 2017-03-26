@@ -1,30 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-	<Product Id="*" Name="Image Transparency Tool" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="e95b9a8e-f2a8-4bff-a4c7-f7b33576583a">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="Image Transparency Tool" Language="1033" Version="1.0.0.0" Manufacturer="Kelly Elton" UpgradeCode="7a2a476e-5e7d-4b4d-9d79-6092422aaace">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <Icon Id="icon.ico" SourceFile="..\ImageTransparencyTool\Resources\Images\icon.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
 
-		<Feature Id="ProductFeature" Title="Image Transparency Tool" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
-	</Product>
+    <Feature Id="MainApplication" Title="Image Transparency Tool" Level="1">
+      <ComponentRef Id="cmpImageTransparencyTool.exe"/>
+      <ComponentRef Id="cmpExceptionless.dll"/>
+      <ComponentRef Id="cmpExceptionless.Wpf.dll"/>
+      <ComponentRef Id="cmpXceed.Wpf.Toolkit.dll"/>
+      <ComponentRef Id="cmpApplicationShortcut"/>
+    </Feature>
+  </Product>
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="ImageTransparencyTool" />
-			</Directory>
-		</Directory>
-	</Fragment>
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="Image Transparency Tool" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Image Transparency Tool"/>
+      </Directory>
+    </Directory>
+  </Fragment>
 
-	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
-		</ComponentGroup>
-	</Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="cmpImageTransparencyTool.exe" Guid="3472ea7a-1e8f-4794-8adf-345217619272">
+        <File Id="ImageTransparencyTool.exe" Name="$(var.ImageTransparencyTool.TargetFileName)" Source="$(var.ImageTransparencyTool.TargetPath)" KeyPath="yes" Checksum="yes"/>
+        <File Id="ImageTransparencyTool.exe.config" Name="$(var.ImageTransparencyTool.TargetFileName).config" Source="$(var.ImageTransparencyTool.TargetPath).config" Checksum="yes"/>
+        <File Id="ImageTransparencyTool.pdb" Name="$(var.ImageTransparencyTool.TargetName).pdb" Source="$(var.ImageTransparencyTool.TargetDir)\$(var.ImageTransparencyTool.TargetName).pdb" Checksum="yes"/>
+      </Component>
+      <Component Id="cmpExceptionless.dll" Guid="403bfb65-d49c-40df-8846-86cf5d095322">
+        <File Id="Exceptionless.dll" Name="Exceptionless.dll" Source="$(var.ImageTransparencyTool.TargetDir)\Exceptionless.dll" KeyPath="yes" Checksum="yes"/>
+      </Component>
+      <Component Id="cmpExceptionless.Wpf.dll" Guid="251a9f12-59b3-42ee-924e-963c3928d69a">
+        <File Id="Exceptionless.Wpf.dll" Name="Exceptionless.Wpf.dll" Source="$(var.ImageTransparencyTool.TargetDir)\Exceptionless.Wpf.dll" KeyPath="yes" Checksum="yes"/>
+      </Component>
+      <Component Id="cmpXceed.Wpf.Toolkit.dll" Guid="b3f7db68-637f-4332-be7f-c66c68764781">
+        <File Id="Xceed.Wpf.Toolkit.dll" Name="Xceed.Wpf.Toolkit.dll" Source="$(var.ImageTransparencyTool.TargetDir)\Xceed.Wpf.Toolkit.dll" KeyPath="yes" Checksum="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="cmpApplicationShortcut" Guid="ab537eaf-1a46-4af7-a833-dd75636cc249">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Image Transparency Tool"
+                  Target="[#ImageTransparencyTool.exe]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"
+                  />
+        <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\ImageTransparencyTool" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
 </Wix>

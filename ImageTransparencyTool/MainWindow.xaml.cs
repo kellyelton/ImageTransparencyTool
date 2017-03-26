@@ -120,6 +120,8 @@ namespace ImageTransparencyTool
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
+            if (_currentImage == null) return;
+            if (_currentImageFilePath == null) return;
             var savePath = _currentImageFilePath;
 
             using (var bmp = (Bitmap)_currentImage.Clone()) {
