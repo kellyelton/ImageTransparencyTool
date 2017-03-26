@@ -24,6 +24,7 @@ namespace ImageTransparencyTool
 
         protected override void OnExit(ExitEventArgs e) {
             ExceptionlessClient.Default.SubmitSessionEnd(UUID.ToString());
+            ExceptionlessClient.Default.ProcessQueue();
             base.OnExit(e);
         }
     }
