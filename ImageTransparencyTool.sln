@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageTransparencyTool", "ImageTransparencyTool\ImageTransparencyTool.csproj", "{E17D2C9D-86CA-4605-8338-A8B75D3E0ED2}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ImageTransparencyTool.Installer", "ImageTransparencyTool.Installer\ImageTransparencyTool.Installer.wixproj", "{FF8582DA-AF76-4F5A-AF7A-910680F006FE}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ImageTransparencyTool.Installer.Bootstrapper", "ImageTransparencyTool.Installer.Bootstrapper\ImageTransparencyTool.Installer.Bootstrapper.wixproj", "{F5BBCEB7-F733-4C49-A3E3-445D4A7DFC54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,12 @@ Global
 		{FF8582DA-AF76-4F5A-AF7A-910680F006FE}.Release|Any CPU.Build.0 = Release|x86
 		{FF8582DA-AF76-4F5A-AF7A-910680F006FE}.Release|x86.ActiveCfg = Release|x86
 		{FF8582DA-AF76-4F5A-AF7A-910680F006FE}.Release|x86.Build.0 = Release|x86
+		{F5BBCEB7-F733-4C49-A3E3-445D4A7DFC54}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F5BBCEB7-F733-4C49-A3E3-445D4A7DFC54}.Debug|x86.ActiveCfg = Debug|x86
+		{F5BBCEB7-F733-4C49-A3E3-445D4A7DFC54}.Debug|x86.Build.0 = Debug|x86
+		{F5BBCEB7-F733-4C49-A3E3-445D4A7DFC54}.Release|Any CPU.ActiveCfg = Release|x86
+		{F5BBCEB7-F733-4C49-A3E3-445D4A7DFC54}.Release|x86.ActiveCfg = Release|x86
+		{F5BBCEB7-F733-4C49-A3E3-445D4A7DFC54}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
