@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="Image Transparency Tool" Language="1033" Version="1.0.0.0" Manufacturer="Kelly Elton" UpgradeCode="7a2a476e-5e7d-4b4d-9d79-6092422aaace">
+  <Product Id="*" Name="Image Transparency Tool" Language="1033" Version="!(bind.fileVersion.ImageTransparencyTool.exe)" Manufacturer="Kelly Elton" UpgradeCode="7a2a476e-5e7d-4b4d-9d79-6092422aaace">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <Icon Id="icon.ico" SourceFile="..\ImageTransparencyTool\Resources\Images\icon.ico"/>
     <Property Id="ARPPRODUCTICON" Value="icon.ico" />
