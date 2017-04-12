@@ -6,8 +6,8 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>f5bbceb7-f733-4c49-a3e3-445d4a7dfc54</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>ImageTransparencyTool.Installer.Bootstrapper</OutputName>
-    <OutputType>Package</OutputType>
+    <OutputName>ImageTransparencyTool.Installer</OutputName>
+    <OutputType>Bundle</OutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>

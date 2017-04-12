@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Bundle Name="Image Transparency Tool Installer Bootstrapper" Version="1.0.0.0" Manufacturer="Kelly Elton" UpgradeCode="f5bbceb7-f733-4c49-a3e3-445d4a7dfc54">
-		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
-
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+	<Bundle Name="Image Transparency Tool" Version="1.0.0.0" Manufacturer="Kelly Elton" UpgradeCode="f5bbceb7-f733-4c49-a3e3-445d4a7dfc54" IconSourceFile="..\ImageTransparencyTool\Resources\Images\icon.ico">
+		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense" >
+			<bal:WixStandardBootstrapperApplication LicenseUrl="" SuppressOptionsUI="yes"/>
+		</BootstrapperApplicationRef>
 		<Chain>
 			<PackageGroupRef Id="NetFx461Web"/>
 			<RollbackBoundary />
-			<MsiPackage Id="MyApplication" SourceFile="..\ImageTransparencyTool.Installer\bin\Debug\ImageTransparencyTool.Installer.msi"/>
+			<MsiPackage SourceFile="$(var.ImageTransparencyTool.Installer.TargetPath)"/>
 		</Chain>
 	</Bundle>
 </Wix>
